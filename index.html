@@ -632,11 +632,17 @@
     </div>
   </section>
 
+  <section class="sponsor-section" aria-label="Sponsored links">
+    <div class="sponsor-card">
+      <p>Sponsored links</p>
+      <div class="sponsor-links" id="sponsorLinks"></div>
+    </div>
+  </section>
+
   <div id="alertModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="alertTitle">
     <div class="modal-card small-modal">
       <h2 id="alertTitle">Incorrect password</h2>
-      <p id="alertText">Warning ⚠️ Your device may be damaged!
-</p>
+      <p id="alertText">Warning ⚠️ Access denied.</p>
       <div class="modal-actions">
         <button id="alertOk" class="btn primary" type="button">OK</button>
       </div>
@@ -645,7 +651,8 @@
 
   <div id="adPopupModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="adPopupTitle">
     <div class="modal-card small-modal">
-      <h2 id="adPopupTitle">video loading.. please wait</h2>
+      <p class="eyebrow">Sponsored</p>
+      <h2 id="adPopupTitle">video loading please wait...</h2>
       <div class="modal-actions">
         <button id="adPopupOk" class="btn primary" type="button">OK</button>
       </div>
@@ -778,7 +785,7 @@
       createdAt: new Date(Date.now() - index * 3600000).toISOString()
     }));
 
-    const movieXnow = [
+    const sponsorItems = [
       ["New Movie", "https://omg10.com/4/10443158"],
       ["18+", "https://omg10.com/4/10443155"],
       ["Trending", "https://omg10.com/4/10443312"],
@@ -1025,8 +1032,7 @@
           $("loginForm").reset();
           renderAdminState();
         } else {
-          showAlert("Incorrect password", "Warning ⚠️ Incorrect password Your device may be damaged!. 
-.");
+          showAlert("Incorrect password", "Warning ⚠️ Access denied.");
         }
       });
       $("logoutBtn").addEventListener("click", () => { sessionStorage.removeItem(SESSION_KEY); renderAdminState(); });
@@ -1189,7 +1195,7 @@
         const a = document.createElement("a");
         a.href = url;
         a.target = "_blank";
-        a.rel = "movieXnow";
+        a.rel = "noopener sponsored";
         a.textContent = label;
         wrap.appendChild(a);
       });
